@@ -18,6 +18,18 @@
     </RestoreAdditionalProjectSources>
   </PropertyGroup>
 
+  <!-- Repo / publish / local reference files: do not copy to bin or plugins output -->
+  <ItemGroup>
+    <None Update=".gitignore;README.md;libs/**/*">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPluginOutputDirectory>Never</CopyToPluginOutputDirectory>
+    </None>
+    <None Update="publish/**/*">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPluginOutputDirectory>Never</CopyToPluginOutputDirectory>
+    </None>
+  </ItemGroup>
+
   <!-- Package References -->
   <ItemGroup>
     <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all"/>
